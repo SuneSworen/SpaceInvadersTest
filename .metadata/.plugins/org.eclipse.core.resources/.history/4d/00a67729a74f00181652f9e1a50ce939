@@ -1,0 +1,21 @@
+package main;
+
+public class Bullet {
+
+	private int x,y,speed,type;
+	
+	public Bullet(int x, int y) {
+		this.x = x;
+		this.y = y;
+		this.speed = 10;
+		this.type = 0;
+	}
+	
+	public void moveBullet() {
+		y -= speed;
+	}
+
+	public void drawBullet() {
+		y -= speed;
+	}
+}

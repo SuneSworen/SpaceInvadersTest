@@ -1,0 +1,18 @@
+package main;
+
+import java.awt.Color;
+import java.awt.Graphics2D;
+
+public class Enemy {
+
+	int x, y;
+	public Enemy(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
+	public void drawEnemy(Graphics2D g2) {
+		g2.setColor(new Color(255,0,0));
+		g2.fillOval(x, y, 100, 100);				
+	}
+
+}

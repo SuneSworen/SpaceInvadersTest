@@ -1,0 +1,33 @@
+package main;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+
+import javax.swing.JComponent;
+
+public class ScreenComponent extends JComponent {
+
+	int startX = 0;
+	int startY = 0;
+	int endX = 0;
+	int endY = 0;
+	Color color = null;
+	
+	public void setComponent(int startX,int startY,int endX,int endY,Color color) {
+		this.startX = startX;
+		this.startY = startY;
+		this.endX = endX;
+		this.endY = endY;
+		this.color = color;
+	}
+	
+	public void paintComponent(Graphics g) {
+		
+		Graphics2D g2 = (Graphics2D) g;
+		
+		g2.setColor(color);
+		g2.fillRect(startX, startY, endX, endY);
+		
+	}
+}

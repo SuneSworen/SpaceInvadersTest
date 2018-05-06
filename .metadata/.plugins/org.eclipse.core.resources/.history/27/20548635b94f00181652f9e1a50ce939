@@ -1,0 +1,40 @@
+package main;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics2D;
+
+public class Enemy {
+
+	int x, y, speed;
+	public Enemy(int x, int y) {
+		this.x = x;
+		this.y = y;
+		this.speed = 2;
+	}
+	public void drawEnemy(Graphics2D g2) {
+		g2.setColor(new Color(255,0,0));
+		g2.fillOval(x, y, 130, 80);				
+	}
+	public void move() {
+		y+= speed;
+		
+	}
+	public boolean checkIfOutOfBounds(Dimension dim) {
+		if(y > dim.getHeight() || y < 0 || x > dim.getWidth() || x < 0) {
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public boolean checkIfhit(Bullet bullet) {
+		int distX = Math.abs(bullet.getX() - this.x);
+		int distY = Math.abs(bullet.getY() - this.y);
+		if(distX <= 130 & distY <= 80) {
+			return true;
+		}else {
+			return false;
+		}
+		
+	}
+}

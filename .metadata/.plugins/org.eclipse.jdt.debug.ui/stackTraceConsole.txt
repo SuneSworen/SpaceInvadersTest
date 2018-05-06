@@ -1,0 +1,9 @@
+//W pressed
+		Action w = new AbstractAction() {
+			public void actionPerformed(ActionEvent arg0) {
+				y -= 5;			
+			}
+		};
+		game.getInputMap().put(KeyStroke.getKeyStroke("W"),
+                "pressedW");
+		game.getActionMap().put("pressedW",w);
