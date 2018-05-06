@@ -1,0 +1,55 @@
+package main;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+
+public class Bullet {
+
+	private int x,y,speed,type;
+	
+	public Bullet(int x, int y) {
+		this.x = x;
+		this.y = y;
+		this.speed = 9;
+		this.type = 0;
+	}
+	
+	public void move() {
+		y -= speed;
+	}
+
+	public void drawBullet(Graphics2D g2) {
+//		g2.setColor(new Color(255,0,0));
+//		g2.fillOval(x, y, 7, 15);
+		
+		BufferedImage img = null;
+		try {
+		    img = ImageIO.read(new File("C:\\Users\\sune9\\Pictures\\Saved Pictures\\comet.png"));
+		} catch (IOException e) {
+		}
+		g2.drawImage(img, x,y, 16, 16, null);
+		
+	}
+
+	public boolean checkIfOutOfBounds(Dimension dim) {
+		if(y > dim.getHeight() || y < 0 || x > dim.getWidth() || x < 0) {
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	public int getX() {
+		return x;
+	}
+
+	public int getY() {
+		return y;
+	}
+}
